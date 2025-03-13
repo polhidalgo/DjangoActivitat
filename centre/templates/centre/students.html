@@ -1,0 +1,19 @@
+{% extends 'centre/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+  <h2>{{ title }}</h2>
+    <a href="{% url 'add_student' %}" class="btn">Afegeix Student</a>
+  <ul>
+    {% for student in students %}
+      <li>
+        <a href="{% url 'student_detail' student.id %}">
+          {{ student.nom }} {{ student.cognom1 }} {% if student.cognom2 %}{{ student.cognom2 }}{% endif %}
+        </a>
+      </li>
+    {% empty %}
+      <li>No hi ha estudiants.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'centre/base.html' %}
+
+{% block title %}Detalls del professor{% endblock %}
+
+{% block content %}
+  <h2>Detalls del professor</h2>
+  <p><strong>Nom:</strong> {{ teacher.nom }}</p>
+  <p><strong>Cognom 1:</strong> {{ teacher.cognom1 }}</p>
+  {% if teacher.cognom2 %}
+    <p><strong>Cognom 2:</strong> {{ teacher.cognom2 }}</p>
+  {% endif %}
+  <p><strong>Correu:</strong> {{ teacher.correu }}</p>
+  <p><strong>Cursos:</strong> {{ teacher.curs|join:", " }}</p>
+  <p><strong>Tutor:</strong> {% if teacher.tutor %}Sí{% else %}No{% endif %}</p>
+  <p><strong>Mòduls:</strong> {{ teacher.moduls|join:", " }}</p>
+
+  <a href="{% url 'teachers' %}">Torna al llistat de professors</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'centre/base.html' %}
+
+{% block content %}
+  <h2>{{ title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Desa</button>
+  </form>
+  <a href="{% url 'teachers' %}">Torna a la llista de Teachers</a>
+{% endblock %}
